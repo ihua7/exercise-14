@@ -78,6 +78,12 @@ p{
     height:100%;
     padding:0px;
 }
+#box3{
+    cursor: pointer;
+}
+#box4{
+    cursor: pointer;
+}
 #col2{
     width:50%;
     height:100%;
