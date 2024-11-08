@@ -1,0 +1,110 @@
+/*
+omg
+*/
+
+*{
+    cursor: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;   
+    scroll-behavior: smooth;  
+}
+
+.container{
+    height:100%;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: row;
+    padding:30px;
+}
+.column-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width:50%;
+    height:100%;
+    background-color: cornflowerblue;
+}
+.row-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width:100%;
+    height:33%;
+    padding:5px;
+    background-color: cornflowerblue;
+}
+
+.boxes{
+    height: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width:100%;
+    background-color: white;
+    margin: 5px;
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    text-align: center;
+    transition: flex-grow .7s;
+
+}
+.boxes text{
+    z-index: 1;
+    position: absolute;
+    margin: auto;
+    background-color: transparent;
+    transition: flex-grow .7s;
+}
+p{
+    z-index: 1;
+    position: absolute;
+}
+.p5sketch{
+    z-index: 3;
+    position: absolute;
+}
+#col1{
+    width:100%;
+}
+#boxone{
+    width:50%;   
+}
+#row2{
+    height:100%;
+    padding:0px;
+}
+#box3{
+    cursor: pointer;
+}
+#box4{
+    cursor: pointer;
+}
+#col2{
+    width:50%;
+    height:100%;
+    padding-bottom: 13px;
+    padding-top: 5px;
+}
+#box6{
+    margin:0;
+    width:100%;
+    background-color: rgb(237, 34, 93);
+}
+#p5sketch4{
+    position: absolute;
+}
+#col3{
+    padding-bottom: 9px;
+    padding-left: 10px;
+}
+#box7{
+    background-color: rgb(43, 51, 126);
+}
+#box9{
+    background-color: rgb(255, 196, 0);
+}
