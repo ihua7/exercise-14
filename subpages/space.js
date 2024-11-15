@@ -45,13 +45,36 @@ export function init3DScene(containerId, config = {}) {
         sketch.box(70);
         sketch.pop();
   
-        let p1 = new Planet(sketch, 1000, [0, 200, 30], 100, 0, 100, 1000, 'white', 40);
-        p1.addMoon('blue', [30, 0, 0], 500, 70, 0, 0, 10);
-        p1.createPlanet();
-  
         let earth = new Planet(sketch, 1000, [0, 200, 40], 200, 0, 0, 10000, sketch.color(0, 150, 255), 20);
         earth.addMoon('white', [0, 10, 1], 500, 20, 0, 0, 5);
         earth.createPlanet();
+
+        let venus = new Planet(sketch, 1200, [0, 200, 40], 0, 0, 150, 1000, sketch.color(205,150,50), 15);
+        venus.addMoon('gray', [1, 0, 1], 400, 20, 0, 0, 5);
+        venus.createPlanet();
+
+        let mercury = new Planet(sketch, 1500, [0, 100, 40], 0, 0, 75, 500, sketch.color(150,23,10), 5);
+        mercury.createPlanet();
+
+        let mars = new Planet(sketch, 1500, [0, 100, -10], 0, 0, 175, 1000, sketch.color(150,23,10), 15);
+        mars.createPlanet();
+
+        let jupiter = new Planet(sketch, 5000, [0, 100, 10], 0, 0, 400, 500, sketch.color(200,103,10), 80);
+        jupiter.addMoon('blue', [0, 20, 0], 700, 70, 0, 0, 10);
+        jupiter.createPlanet();
+
+        let saturn = new Planet(sketch, 5000, [10, 100, 0], 600, 0, 450, 700, sketch.color(200,163,10), 60);
+        saturn.addMoon('yellow', [0, 60, 0], 700, 70, 0, 0, 10);
+        saturn.createPlanet();
+
+        let neptune = new Planet(sketch, 5000, [10, 100, 0], 200, 0, -500, 700, sketch.color(60,20,200), 55);
+        neptune.addMoon('yellow', [0, 0, 60], 700, 70, 0, 0, 10);
+        neptune.createPlanet();
+
+        let uranus = new Planet(sketch, 5000, [10, 100, 0], 900, 500, 550, 700, sketch.color(20,163,200), 40);
+        uranus.addMoon('yellow', [40, 10, 0], 700, 70, 0, 0, 10);
+        uranus.createPlanet();
+        
       };
   
       class Planet {

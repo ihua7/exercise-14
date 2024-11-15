@@ -12,7 +12,7 @@ omg
 
 .container{
     height:100%;
-    background-color: black;
+    background-color: rgb(126, 126, 126);
     display: flex;
     flex-direction: row;
     padding:30px;
@@ -24,7 +24,7 @@ omg
     flex-direction: column;
     width:50%;
     height:100%;;
-    background-color: black;
+    background-color: rgb(180, 85, 85);
 }
 .row-container{
     display: flex;
@@ -34,7 +34,7 @@ omg
     width:100%;
     height:33%;
     padding:5px;
-    background-color: black;
+    background-color: rgb(106, 123, 146);
 }
 
 .boxes{
@@ -74,10 +74,7 @@ p{
 #boxone{
     width:50%;   
 }
-#row2{
-    height:100%;
-    padding:0px;
-}
+
 #rowspace{
     height:66%;
     padding:5px;
@@ -89,26 +86,37 @@ p{
     cursor: pointer;
 }
 #col2{
-    width:50%;
-    height:100%;
-    padding-bottom: 13px;
-    padding-top: 5px;
+    width:100%;
+    padding-right: 10px;
+    padding-bottom: .5%;
 }
 #box6{
-    margin:0;
+    margin:-5px;
+    right: 5px;
     width:100%;
-    background-color: black;
+    background-color: rgb(18, 99, 39);
 }
-#p5sketch4{
-    position: absolute;
+
+#row2{
+    height:50%;
+   
 }
-#col3{
-    padding-bottom: 9px;
-    padding-left: 10px;
+#row3{
+    height:50%;
+    width:100%;
+    margin-bottom:5px;
+    margin-top:5px;
+    padding:0px;
 }
 #box7{
+    margin: 0px;
     background-color: rgb(43, 51, 126);
 }
+#box8{
+    margin: 5px;
+    background-color: rgb(0, 0, 0);
+}
 #box9{
-    background-color: rgb(255, 196, 0);
+    margin:0px;
+    background-color: rgb(255, 255, 255);
 }
