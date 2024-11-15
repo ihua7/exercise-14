@@ -317,4 +317,8 @@ $(document).ready(function(){
             $("#author").fadeToggle(500);
     });
     let click4=0;
+    $("#box9").click(function(){
+        window.location.href = "subpages/index.html";
+    });
+    let click5=0;
 });

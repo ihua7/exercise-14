@@ -10,12 +10,14 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
     <script src="gridscript1.js"></script>
+    <script type="module" src="gridscript1.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style ="background-color: black">
         <div class="column-container" id="col1">
             <div class="row-container">
                 <div class="boxes" id="boxone">
@@ -27,20 +29,13 @@
                     <p></p>
                 </div>
             </div>
-            <div class="row-container">
-                <div class="boxes" id="box3">
-                    <p>( ´ ▽ ` )ﾉ</p>
-                </div>
-                <div class="boxes" id="box4">
-                    <p>σ(≧ε≦ｏ)</p>
-                </div>
-            </div>
-            <div class="row-container">
+            <div class="row-container" id="rowspace">
                 <div class="boxes" id="box5">
                     <div id = "p5sketch3"></div>
                 </div>
             </div>
         </div>
+        <!--this is middle column-->
         <div class="row-container" id="row2">
             <div class="column-container" id="col2">
                 <div class=boxes id="box6">

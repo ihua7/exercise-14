@@ -1,3 +1,5 @@
+import { init3DScene } from './space.js';
+
 var ass = function(sketch){
     sketch.setup=function(){
         var canvasDiv = document.getElementById('boxone');
@@ -66,7 +68,7 @@ var c = function(sketch){
     sketch.setup=function(){
         var canvasDiv = document.getElementById('box5');
         var cnv = sketch.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight, this.WEBGL);
-        sketch.background('red');
+        sketch.background('blue');
         cnv.mousePressed(doStuff);
         sketch.frameRate(24);
     }   
@@ -97,7 +99,15 @@ var c = function(sketch){
     }
 
 }
-var box3 = new p5(c, 'p5sketch3');
+const customConfig = {
+    
+    canvasDiv: document.getElementById('box5'),
+    background: 'black',
+    frameRate: 30,
+    debugMode: false,
+  };
+
+var box3 = init3DScene('p5sketch3', customConfig);
 var d = function(sketch){
     
     sketch.setup=function(){
@@ -118,7 +128,7 @@ var d = function(sketch){
         var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
         var targetX = sketch.mouseX;
         var targetY = sketch.mouseY;
-        sketch.background(237, 34, 93);
+        sketch.background('black');
         let dx = targetX - x;
         x += dx * easing;
         let dy = targetY - y;
@@ -225,6 +235,8 @@ var f = function(sketch){
 
 }
 var box8 = new p5(f, 'p5sketch6');
+
+//box 9
 var g = function(sketch){
     
     sketch.setup=function(){
@@ -276,29 +288,6 @@ $(document).ready(function(){
         $("#p5sketch1").fadeToggle(500);
     });
     let click=0;
-    $("#box3").click(function(){
-        if(click%2==0){
-            $("#box3").animate({width:"25%", backgroundColor:"red"},200);
-            $("#box3").text('( ꒪Д꒪)ノ');
-        }
-        else{
-            $("#box3").animate({width:"100%", color:"black", backgroundColor:"white"},200);
-            $("#box3").text('( ⚆ _ ⚆ )');
-        }
-        click++;
-    });
-    let click2=0;
-    $("#box4").click(function(){
-        if(click2%2==0){
-            $("#box4").animate({height:"25%",backgroundColor:"black", color:"white"},200);
-            $("#box4").text('Σ(゜ロ゜;)');
-        }
-        else{
-            $("#box4").animate({height:"100%", backgroundColor:"white", color:"black"},200);
-            $("#box4").text('(‘◉⌓◉’)');
-        }
-        click2++;
-    });
     let click3=0;
     $("#box6").click(function(){
         if(click3%2==0){
@@ -316,5 +305,6 @@ $(document).ready(function(){
     $("#box8").click(function(){
             $("#author").fadeToggle(500);
     });
-    let click4=0;
+    let click5=0;
+    
 });
