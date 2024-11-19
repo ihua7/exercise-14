@@ -1,5 +1,11 @@
-import { init3DScene } from './space.js';
+var keyblue = false;
+var keygreen = false;
+var keyred = false;
 
+function isActivated(){
+    if(keyblue && keygreen && keyred)
+        return true;
+}
 var ass = function(sketch){
     sketch.setup=function(){
         var canvasDiv = document.getElementById('boxone');
@@ -107,64 +113,7 @@ const customConfig = {
     debugMode: false,
   };
 
-var box3 = init3DScene('p5sketch3', customConfig);
 
-var d = function(sketch) {
-    let angle;
-
-    sketch.setup = function() {
-        // Get the container element
-        var canvasDiv = document.getElementById('box6');
-        var cnv = sketch.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight, sketch.WEBGL);
-        sketch.angleMode(sketch.DEGREES);
-        sketch.noStroke();
-        sketch.frameRate(30);
-        sketch.background(0);
-    };
-
-    sketch.draw = function() {
-        // Get the container dimensions (for reference, not resizing)
-        var canvasDiv = document.getElementById('box6');
-        var w = canvasDiv.offsetWidth, h = canvasDiv.offsetHeight;
-
-        // Render the spiral animation
-        sketch.background(0);
-        //sketch.orbitControl();
-
-        for (let n = 0; n < 1300; n++) {
-            angle = n * 137.5; // Adjust angle for spiral pattern
-
-            // Calculate initial position
-            let radius = n * 0.6;
-            let x = Math.cos(sketch.degrees(angle)) * radius;
-            let y = Math.sin(sketch.degrees(angle)) * radius;
-            let rotationSpeed = 0.000000005;
-            // Apply vortex rotation
-            let rotatedX = x * Math.cos(sketch.frameCount/20 * rotationSpeed) - y * Math.sin(sketch.frameCount/20 * rotationSpeed);
-            let rotatedY = x * Math.sin(sketch.frameCount/20 * rotationSpeed) + y * Math.cos(sketch.frameCount/20 * rotationSpeed);
-
-            // Oscillate z position
-            let z = Math.sin(sketch.frameCount * 0.09 + n * 0.8) * (n * 0.7);
-
-            sketch.fill(n % 255, 180, 255);
-            sketch.push();
-            sketch.translate(rotatedX, rotatedY, z);
-            sketch.rotateY(sketch.millis() * 0.05);
-            sketch.sphere(1, 2);
-            sketch.pop();
-        }
-    };
-
-    sketch.windowResized = function() {
-        // Resize canvas only when the window size changes
-        var canvasDiv = document.getElementById('box6');
-        var w = canvasDiv.offsetWidth, h = canvasDiv.offsetHeight;
-        sketch.resizeCanvas(w, h);
-    };
-};
-
-
-var box6 = new p5(d, 'p5sketch4');
 
 var e = function(sketch){
     sketch.setup=function(){
@@ -175,6 +124,7 @@ var e = function(sketch){
         sketch.frameRate(60);
         sketch.noStroke();
     }   
+    var bgB = 'black';
     let x = .5;
     let y = .5;
     let easing = .25;
@@ -185,7 +135,7 @@ var e = function(sketch){
         var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
         var targetX = sketch.mouseX;
         var targetY = sketch.mouseY;
-        sketch.background('black');
+        sketch.background(bgB);
         let dx = targetX - x;
         x += dx * easing;
         let dy = targetY - y;
@@ -195,7 +145,14 @@ var e = function(sketch){
     }
 
     function doStuff(){
-        sketch.background('red');
+        if(bgB != 'black'){
+            bgB = 'black';
+            keyblue = false;
+        }
+        else{
+            bgB = sketch.color(0,0,255);
+            keyblue = true;
+        }
     }
     sketch.windowResized=function() {
         var canvasDiv = document.getElementById('box7');
@@ -209,13 +166,15 @@ var box7 = new p5(e, 'p5sketch5');
 var f = function(sketch){
     
     sketch.setup=function(){
+        
         var canvasDiv = document.getElementById('box8');
-        var cnv = sketch.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight, this.WEBGL);
+        var cnv = sketch.createCanvas(canvasDiv.offsetWidth+5, canvasDiv.offsetHeight, this.WEBGL);
         sketch.background('black');
         cnv.mousePressed(doStuff);
         sketch.frameRate(60);
         sketch.noStroke();
-    }   
+    } 
+    var bgGreen = 'black';  
     let x = .5;
     let y = .5;
     let easing = .25;
@@ -226,7 +185,7 @@ var f = function(sketch){
         var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
         var targetX = sketch.mouseX;
         var targetY = sketch.mouseY;
-        sketch.background('black');
+        sketch.background(bgGreen);
         let dx = targetX - x;
         x += dx * easing;
         let dy = targetY - y;
@@ -237,7 +196,14 @@ var f = function(sketch){
     }
 
     function doStuff(){
-        sketch.background('green');
+        if(bgGreen != 'black'){
+            bgGreen = 'black';
+            keygreen = false;
+        }
+        else{
+            bgGreen = sketch.color(0,255,0);
+            keygreen = true;
+        }
     }
     sketch.windowResized=function() {
         var canvasDiv = document.getElementById('box8');
@@ -292,11 +258,14 @@ var g = function(sketch){
     }
 
     function doStuff(){
-        if(bgCol == 'black')
-            bgCol = 'red';
-        else
+        if(bgCol != 'black'){
             bgCol = 'black';
-        
+            keyred = false;
+        }
+        else{
+            bgCol = sketch.color(255,0,0);
+            keyred = true;
+        }
     }
     sketch.windowResized=function() {
         var canvasDiv = document.getElementById('box9');
@@ -306,6 +275,9 @@ var g = function(sketch){
 
 }
 var box9 = new p5(g, 'p5sketch7');
+
+
+
 
 $(document).ready(function(){
     $("#boxone").click(function(){
