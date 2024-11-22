@@ -82,6 +82,10 @@ new p5(function(sketch) {
   
     // Mouse press event to toggle clicked state
     function doStuff() {
+      if(isActivated() == true){
+        window.location.href = "./colorworld/index.html";
+
+      }
       clicked = true;
     }
   

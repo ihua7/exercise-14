@@ -79,6 +79,10 @@ p{
     height:66%;
     padding:5px;
 }
+
+#box2{
+    width:50%;
+}
 #box3{
     cursor: pointer;
 }

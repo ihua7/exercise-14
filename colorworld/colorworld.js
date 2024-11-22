@@ -286,15 +286,14 @@ $(document).ready(function(){
     $("#box8").hover(function(){
             //$("#author").fadeToggle(500);
     });
-    /*
     $("#box6").click(function(e) {
-        if (IsActivated()==true) {
+        if (IsActivated()) {
             // Replace with your desired link
-            window.location.href = "butt.com";
+            window.location.href = "./colorworld/index.html";
         } else {
             e.preventDefault(); // Prevents default behavior if not activated
         }
     });
-*/
+
     
 });

@@ -16,7 +16,7 @@ new p5(function(sketch) {
 
   sketch.draw = function() {
     sketch.background('black');  // Reset background to black in each frame
-    sketch.orbitControl();  // Allow user to interact with the scene
+    //sketch.orbitControl();  // Allow user to interact with the scene
 
     // Create rotating boxes
     sketch.push();
@@ -67,7 +67,7 @@ new p5(function(sketch) {
     uranus.createPlanet();
 
     sketch.push();
-      sketch.translate(sketch.mouseX - sketch.width / 2, sketch.mouseY - sketch.height / 2);
+      sketch.translate(sketch.mouseX - sketch.width / 2, sketch.mouseY - sketch.height / 2, 0);
       sketch.rotateX(sketch.millis() * 0.001);
       sketch.rotateY(sketch.millis() * 0.001);
       sketch.noFill();
