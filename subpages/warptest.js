@@ -23,21 +23,30 @@ new p5(function(sketch) {
     };
     var colo = 255;
     var colo2 = 180;
+    var cursor = 'white';
     // Draw function to animate and render
     sketch.draw = function() {
-      sketch.background(0);
+      
   
       if (isActivated() == true) {
-        console.log("actiavted")
         sketch.background('white');
         colo = 0;
         colo2 = 0;
+        cursor = 'black';
       }
+      else{
+        colo = 255;
+        colo2 = 180;
+        sketch.background(0);
+        cursor = 'white';
+      }
+
+      
   
       // Create the vortex effect
       for (let n = 0; n < 1300; n++) {
         angle = n * 137.5;
-  
+        
         // Calculate the initial position
         let radius = n * 0.6;
         let x = sketch.cos(angle) * radius;
@@ -65,7 +74,7 @@ new p5(function(sketch) {
       sketch.rotateX(sketch.millis() * 0.1);
       sketch.rotateY(sketch.millis() * 0.01);
       sketch.noFill();
-      sketch.stroke('white');
+      sketch.stroke(cursor);
       sketch.box(12);
       sketch.fill(sketch.color(255, 255, 255, 100));
       sketch.pop();
