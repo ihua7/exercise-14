@@ -1,289 +1,192 @@
-var keyblue = false;
-var keygreen = false;
-var keyred = false;
+//start of code
 
-function isActivated(){
-    if(keyblue && keygreen && keyred)
-        return true;
-}
-var ass = function(p){
-    p.starx = [];
-    p.stary = [];
-  
+//a standardized p5sketch func to cop/past
+var sketch1 = function(p){
+    p.w;
+    p.h;
     p.setup = function() {
-        var canvasDiv = document.getElementById('boxone');
-        let box1w = canvasDiv.offsetWidth;
-        let box1h = canvasDiv.offsetHeight;
-        p.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
-        //p.createCanvas(400, 400);
-        for (let i = 0; i < 1000; i++) {
-            p.starx[i] = p.random(-10*box1w, box1w*10);
-            p.stary[i] = p.random(-10*box1h, box1h*10);
-        }
+        var canvasDiv = document.getElementById('box1');
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.rectMode(p.CENTER);
+        let cnv = p.createCanvas(p.w+6, p.h);
+        cnv.parent('box1'); 
     };
   
     p.draw = function() {
-      p.background(0);
-      for (let i = 0; i < 1000; i++) {
-        p.fill('white');
+        p.background(255,100,255);
+        p.push();
+        p.translate(p.w/2, p.h/2); 
+        p.rotate(p.frameCount/40);
         p.noStroke();
-        p.square(p.starx[i]-p.mouseX, p.stary[i]-p.mouseY, 1.0);
-      }
+        p.fill('red');
+        p.square(0,0,50);
+        p.pop();
+
+        //p.resizeCanvas(p.w, p.h);
     };
 
     p.windowResized=function() {
-        var canvasDiv = document.getElementById('boxone');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        p.resizeCanvas(w, h);
+        var canvasDiv = document.getElementById('box1');
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.resizeCanvas(p.w, p.h);
     };
 }
-var box1 = new p5(ass, 'p5sketch1');
-var b = function(b){
-    b.starx = [];
-    b.stary = [];
+var box1 = new p5(sketch1);
+
+var sketch2 = function(p){
+    p.boxID = 'box2';
+    p.w;
+    p.h;
+    p.setup = function() {
+        var canvasDiv = document.getElementById(p.boxID);
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.rectMode(p.CENTER);
+        let cnv = p.createCanvas(p.w+10, p.h);
+        cnv.parent(p.boxID); 
+    };
   
-    b.setup = function() {
-        var canvasDiv = document.getElementById('box2');
-        let box1w = canvasDiv.offsetWidth;
-        let box1h = canvasDiv.offsetHeight;
-        b.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight);
-        //p.createCanvas(400, 400);
-        for (let i = 0; i < 1000; i++) {
-            b.starx[i] = b.random(-10*box1w, box1w*10);
-            b.stary[i] = b.random(-10*box1h, box1h*10);
-        }
+    p.draw = function() {
+        p.background(255,255,100);
+        p.push();
+        p.translate(p.w/2+6, p.h/2); 
+        p.rotate(p.frameCount/40);
+        p.noStroke();
+        p.fill(p.color(0,255,0))
+        p.square(0,0,50);
+        p.pop();
+
+        //p.resizeCanvas(p.w, p.h);
+    };
+
+    p.windowResized=function() {
+        var canvasDiv = document.getElementById(p.boxID);
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.resizeCanvas(p.w, p.h);
+    };
+}
+var box2 = new p5(sketch2);
+
+var sketch3 = function(p){
+    p.boxID = 'box3';
+    p.w;
+    p.h;
+    p.setup = function() {
+        var canvasDiv = document.getElementById(p.boxID);
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.rectMode(p.CENTER);
+        let cnv = p.createCanvas(p.w+17, p.h);
+        cnv.parent(p.boxID); 
     };
   
-    b.draw = function() {
-        b.background(0);
-        for (let i = 0; i < 1000; i++) {
-            b.fill('white');
-            b.noStroke();
-            b.square(b.starx[i]-b.mouseX, b.stary[i]-b.mouseY, 1.0);
-        }
-    
-        b.textSize(30);
-        b.text('🚀', b.mouseX,b.mouseY);
-      
+    p.draw = function() {
+        p.background(100,255,255);
+        p.push();
+        p.translate(p.w/2+12.5, p.h/2); 
+        p.rotate(p.frameCount/40);
+        p.noStroke();
+        p.fill(p.color(0,0,255))
+        p.square(0,0,50);
+        p.pop();
+
+        //p.resizeCanvas(p.w, p.h);
     };
 
-    b.windowResized=function() {
-        var canvasDiv = document.getElementById('box2');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        b.resizeCanvas(w, h);
+    p.windowResized=function() {
+        var canvasDiv = document.getElementById(p.boxID);
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.resizeCanvas(p.w, p.h);
     };
 }
-var box2 = new p5(b, 'p5sketch2');
+var box3 = new p5(sketch3);
 
-var c = function(sketch){
-    sketch.setup=function(){
-        var canvasDiv = document.getElementById('box5');
-        var cnv = sketch.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight, this.WEBGL);
-        sketch.background('blue');
-        cnv.mousePressed(doStuff);
-        sketch.frameRate(24);
-    }   
+var sketch4 = function(p){
+    p.boxID = 'box4';
+    p.w;
+    p.h;
+    p.pallete;
+    p.cnv;
+    p.setup = function() {
+        var canvasDiv = document.getElementById(p.boxID);
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.rectMode(p.CENTER);
+        let cnv = p.createCanvas(p.w+17, p.h, p.WEBGL);
+        cnv.parent(p.boxID); 
 
-    sketch.draw=function(){ 
-        var canvasDiv = document.getElementById('box5');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        //sketch.background(255);
-        var x = sketch.mouseX;
-        var y = sketch.mouseY;
-        sketch.noStroke();
-        sketch.fill((sketch.random(0,255)),(sketch.random(0,255)),(sketch.random(0,255)))
-        sketch.translate(x-w/2,y-h/2, sketch.random(-100,50))
-        sketch.rotateZ(sketch.random(0,360));
-        sketch.rotateY(sketch.random(0,360));
-        sketch.rotateX(sketch.random(0,360));
-        sketch.box(sketch.random(10,60));
-
-    }
-
-    function doStuff(){
-        sketch.background(255);
-    }
-    sketch.windowResized=function() {
-        var canvasDiv = document.getElementById('box5');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        sketch.resizeCanvas(w, h);
-    }
-
-}
-const customConfig = {
-    
-    canvasDiv: document.getElementById('box5'),
-    background: 'black',
-    frameRate: 30,
-    debugMode: false,
-  };
-
-
-
-var e = function(sketch){
-    sketch.setup=function(){
-        var canvasDiv = document.getElementById('box7');
-        var cnv = sketch.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight, this.WEBGL);
-        sketch.background('black');
-        cnv.mousePressed(doStuff);
-        sketch.frameRate(60);
-        sketch.noStroke();
-    }   
-    var bgB = 'black';
-    let x = .5;
-    let y = .5;
-    let easing = .25;
-    let trail = [];
-    let a = 0;
-    sketch.draw=function(){ 
-        var canvasDiv = document.getElementById('box7');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        var targetX = sketch.mouseX;
-        var targetY = sketch.mouseY;
-        sketch.background(bgB);
-        let dx = targetX - x;
-        x += dx * easing;
-        let dy = targetY - y;
-        y += dy * easing;
-        sketch.ellipse(x-w/2, y-h/2, 20, 20);
-        sketch.resizeCanvas(w, h);
-    }
-
-    function doStuff(){
-        if(bgB != 'black'){
-            bgB = 'black';
-            keyblue = false;
-        }
-        else{
-            bgB = sketch.color(0,0,255);
-            keyblue = true;
-        }
-    }
-    sketch.windowResized=function() {
-        var canvasDiv = document.getElementById('box7');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        sketch.resizeCanvas(w, h);
-    }
-
-
-}
-var box7 = new p5(e, 'p5sketch5');
-var f = function(sketch){
-    
-    sketch.setup=function(){
+        p.angleMode(p.DEGREES);
         
-        var canvasDiv = document.getElementById('box8');
-        var cnv = sketch.createCanvas(canvasDiv.offsetWidth+5, canvasDiv.offsetHeight, this.WEBGL);
-        sketch.background('black');
-        cnv.mousePressed(doStuff);
-        sketch.frameRate(60);
-        sketch.noStroke();
-    } 
-    var bgGreen = 'black';  
-    let x = .5;
-    let y = .5;
-    let easing = .25;
-    let a = 0;
-    sketch.draw=function(){ 
-        var canvasDiv = document.getElementById('box8');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        var targetX = sketch.mouseX;
-        var targetY = sketch.mouseY;
-        sketch.background(bgGreen);
-        let dx = targetX - x;
-        x += dx * easing;
-        let dy = targetY - y;
-        y += dy * easing;
-        sketch.fill(sketch.color(250,250,100));
-        sketch.ellipse(x-w/2, y-h/2, 66, 66);
-        sketch.resizeCanvas(w, h);
-    }
-
-    function doStuff(){
-        if(bgGreen != 'black'){
-            bgGreen = 'black';
-            keygreen = false;
-        }
-        else{
-            bgGreen = sketch.color(0,255,0);
-            keygreen = true;
-        }
-    }
-    sketch.windowResized=function() {
-        var canvasDiv = document.getElementById('box8');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        sketch.resizeCanvas(w, h);
-    }
-
-
-}
-
-
-var box8 = new p5(f, 'p5sketch6');
-
-//box 9
-var g = function(sketch){
-    
-    sketch.setup=function(){
-        var canvasDiv = document.getElementById('box9');
-        var cnv = sketch.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight, this.WEBGL);
-        sketch.background('black');
-        cnv.mousePressed(doStuff);
-        sketch.frameRate(60);
-        sketch.noStroke();
-    }   
-    let x = .5;
-    let y = .5;
-    let easing = .25;
-    let trail = [];
-    let a = 0;
-    var bgCol = 'black';
-    sketch.draw=function(){ 
-        var canvasDiv = document.getElementById('box9');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        var targetX = sketch.mouseX;
-        var targetY = sketch.mouseY;
+        p.palette = [
+            p.color(255, 0, 0),   // Red
+            p.color(255, 165, 0), // Orange
+            p.color(255, 255, 0), // Yellow
+            p.color(0, 255, 0),   // Green
+            p.color(0, 100, 100), // Teal
+            p.color(0, 50, 255),  // Blue
+            p.color(75, 0, 130),  // Indigo
+            p.color(238, 0, 238), // Violet
+            p.color(238, 0, 100)  // Pinkish Violet
+        ];
+    };
+  
+    p.draw = function() {
+        p.background(0);
+        //p.rotateX(20)
+        //p.box(45);
         
-        sketch.background(bgCol);
-        let dx = targetX - x;
-        x += dx * easing;
-        let dy = targetY - y;
-        y += dy * easing;
-        sketch.translate(x-w/2, y-h/2);
-        sketch.rotateX(sketch.frameCount * 0.01);
-        sketch.rotateY(sketch.frameCount * 0.01);
-        sketch.fill('white');
-        sketch.noStroke();
-        sketch.box(20);
-        sketch.fill(sketch.color(255,255,255,100));
-        sketch.box(30);
-        //sketch.ellipse(x-w/2, y-h/2, 45, 45);
-        sketch.resizeCanvas(w, h);
-    }
+        for (let n = 0; n < 1300; n++) {
+            angle = n * 132.5;
+            let speedof = 0.05;
+        
+            // Calculate the initial position
+            let radius = n * 0.9; // Radius of each sphere from the center
+            let x = p.cos(angle) * radius;
+            let y = p.sin(angle) * radius;
+        
+            // Add vortex rotation by modifying x and y over time
+            let rotatedX = x * p.cos(p.millis() * speedof) - y * p.sin(p.millis() * speedof);
+            let rotatedY = x * p.sin(p.millis() * speedof) + y * p.cos(p.millis() * speedof);
+        
+            // Calculate a cycling parameter based on sphere index and time
+            let t = (n / 1300 + p.millis() * 0.0005) % 1;
+        
+            // Determine which two colors to interpolate between
+            let colorIndex = p.floor(t * (p.palette.length - 1));
+            let nextColorIndex = (colorIndex + 1) % p.palette.length;
+            let lerpAmount = t * (p.palette.length - 1) - colorIndex;
+        
+            // Interpolate between the two colors
+            let sphereColor = p.lerpColor(p.palette[colorIndex], p.palette[nextColorIndex], lerpAmount);
+        
+            p.fill(sphereColor);
+            p.noStroke();
+            p.push();
+            p.translate(rotatedX, rotatedY, 10); // Apply translation with vortex rotation
+            p.rotateY(90); // Rotate each sphere slightly for added effect
+            p.sphere(45, 2);
+            p.pop();
+          }
+    };
 
-    function doStuff(){
-        if(bgCol != 'black'){
-            bgCol = 'black';
-            keyred = false;
-        }
-        else{
-            bgCol = sketch.color(255,0,0);
-            keyred = true;
-        }
-    }
-    sketch.windowResized=function() {
-        var canvasDiv = document.getElementById('box9');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
-        sketch.resizeCanvas(w, h);
-    }
-
+    p.windowResized=function() {
+        var canvasDiv = document.getElementById(p.boxID);
+        p.w = canvasDiv.offsetWidth;
+        p.h = canvasDiv.offsetHeight;
+        p.resizeCanvas(p.w, p.h);
+    };
 }
-var box9 = new p5(g, 'p5sketch7');
+var box4 = new p5(sketch4);
 
 
+//Start of JQuery (if needed)
 $(document).ready(function(){
     let click=0;
-    $("#box8").hover(function(){
+    $("#box").hover(function(){
             //$("#author").fadeToggle(500);
     });
     $("#box6").click(function(e) {

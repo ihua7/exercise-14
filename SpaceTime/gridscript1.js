@@ -6,6 +6,7 @@ function isActivated(){
     if(keyblue && keygreen && keyred)
         return true;
 }
+
 var ass = function(p){
     p.starx = [];
     p.stary = [];
