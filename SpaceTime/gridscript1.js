@@ -174,7 +174,7 @@ var f = function(sketch){
     sketch.setup=function(){
         
         var canvasDiv = document.getElementById('box8');
-        var cnv = sketch.createCanvas(canvasDiv.offsetWidth+5, canvasDiv.offsetHeight, this.WEBGL);
+        var cnv = sketch.createCanvas(canvasDiv.offsetWidth, canvasDiv.offsetHeight, this.WEBGL);
         sketch.background('black');
         cnv.mousePressed(doStuff);
         sketch.frameRate(60);
@@ -241,7 +241,7 @@ var g = function(sketch){
     var bgCol = 'black';
     sketch.draw=function(){ 
         var canvasDiv = document.getElementById('box9');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
+        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight+1;
         var targetX = sketch.mouseX;
         var targetY = sketch.mouseY;
         

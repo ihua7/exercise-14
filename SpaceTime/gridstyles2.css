@@ -10,6 +10,10 @@ omg
     scroll-behavior: smooth;  
 }
 
+div{
+    display:flex;
+}
+
 .container{
     height:100%;
     background-color: black;
