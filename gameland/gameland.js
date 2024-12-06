@@ -85,7 +85,7 @@ var sketch1 = function(p) {
 
             
             // Insert custom script here
-            window.location.href = "/web-adventure";
+            window.location.href = "/";
             // You can replace the line above with any script you'd like to run
         }
     };
