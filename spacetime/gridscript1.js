@@ -187,7 +187,7 @@ var f = function(sketch){
     let a = 0;
     sketch.draw=function(){ 
         var canvasDiv = document.getElementById('box8');
-        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight;
+        var w=canvasDiv.offsetWidth, h= canvasDiv.offsetHeight+1;
         var targetX = sketch.mouseX;
         var targetY = sketch.mouseY;
         sketch.background(bgGreen);
