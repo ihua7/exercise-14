@@ -1,4 +1,4 @@
-// Create a new p5.js instance
+// Create a new p5.js instance yeaaaa
 new p5(function(sketch) {
 
     let angle;
