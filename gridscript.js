@@ -265,7 +265,7 @@ var g = function(sketch){
 
     function doStuff(){
         if(clicked1 && clicked2){
-            window.location.href = "web-adventure/spacetime";
+            window.location.href = "/web-adventure/spacetime";
         }
     }
     sketch.windowResized=function() {
