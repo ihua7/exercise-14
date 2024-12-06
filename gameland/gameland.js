@@ -33,9 +33,9 @@ var sketch1 = function(p) {
 
         x = p.w / 2;
         p.y = p.h / 2;
-        whiteBallX = p.w/2; // X position of the white ball
-        whiteBallY = p.h/2; // Y position of the white ball
-        whiteBallRadius = 25; // Radius of the white ball
+        whiteBallX = p.w/2; 
+        whiteBallY = p.h/2; 
+        whiteBallRadius = 25; 
     };
 
     p.draw = function() {
@@ -53,7 +53,7 @@ var sketch1 = function(p) {
         }
 
         if (p.keyIsDown(p.DOWN_ARROW) || p.keyIsDown(83)) {
-            // Crouch logic if needed
+            
         }
 
         x += p.velX;
@@ -71,11 +71,11 @@ var sketch1 = function(p) {
             p.square(x + 50, p.y, 50);
         }
 
-        p.fill(255); // White ball
+        p.fill(255);
         p.noStroke();
         p.ellipse(whiteBallX, whiteBallY, whiteBallRadius * 2);
 
-        // Collision detection with the white ball
+        
         if (rise1 && rise2 &&
             x > whiteBallX - whiteBallRadius &&
             x < whiteBallX + whiteBallRadius &&
@@ -84,9 +84,9 @@ var sketch1 = function(p) {
         ) {
 
             
-            // Insert custom script here
+            
             window.location.href = "/web-adventure";
-            // You can replace the line above with any script you'd like to run
+            
         }
     };
 
