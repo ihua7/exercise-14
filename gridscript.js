@@ -1,3 +1,7 @@
+var clicked1 = false;
+var clicked2 = false;
+
+
 var ass = function(sketch){
     sketch.setup=function(){
         var canvasDiv = document.getElementById('boxone');
@@ -260,7 +264,9 @@ var g = function(sketch){
     }
 
     function doStuff(){
-        sketch.background(255, 196, 0);
+        if(clicked1 && clicked2){
+            window.location.href = "web-adventure/spacetime";
+        }
     }
     sketch.windowResized=function() {
         var canvasDiv = document.getElementById('box9');
@@ -280,6 +286,7 @@ $(document).ready(function(){
         if(click%2==0){
             $("#box3").animate({width:"25%", backgroundColor:"red"},200);
             $("#box3").text('( ꒪Д꒪)ノ');
+            clicked1 = true;
         }
         else{
             $("#box3").animate({width:"100%", color:"black", backgroundColor:"white"},200);
@@ -292,6 +299,7 @@ $(document).ready(function(){
         if(click2%2==0){
             $("#box4").animate({height:"25%",backgroundColor:"black", color:"white"},200);
             $("#box4").text('Σ(゜ロ゜;)');
+            clicked2 = true;
         }
         else{
             $("#box4").animate({height:"100%", backgroundColor:"white", color:"black"},200);
@@ -318,7 +326,7 @@ $(document).ready(function(){
     });
     let click4=0;
     $("#box9").click(function(){
-        window.location.href = "subpages/index.html";
+        
     });
     let click5=0;
 });
